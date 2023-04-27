@@ -14,17 +14,19 @@ public:
     ~Medicamento() {
         cout << "Se ha eliminado el medicamento " << nombre << endl;
     }
-    void vender(int cantidadVendida) {
+    Medicamento& vender(int cantidadVendida) {
         if (cantidad >= cantidadVendida) {
             cantidad -= cantidadVendida;
             cout << "Se ha vendido " << cantidadVendida << " unidades del medicamento " << nombre << endl;
         } else {
             cout << "No hay suficiente stock del medicamento " << nombre << endl;
         }
+        return *this;
     }
-    void comprar(int cantidadComprada) {
+    Medicamento& comprar(int cantidadComprada) {
         cantidad += cantidadComprada;
         cout << "Se ha comprado " << cantidadComprada << " unidades del medicamento " << nombre << endl;
+        return *this;
     }
     string getNombre() const {
         return nombre;
